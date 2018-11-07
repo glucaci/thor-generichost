@@ -1,0 +1,18 @@
+<Project>
+
+  <PropertyGroup>
+    <Product>Thor GenericHost</Product>
+    <Authors>ChilliCream authors and contributors</Authors>
+    <Company>ChilliCream</Company>
+    <Copyright>Copyright © 2018 ChilliCream (Michael &amp; Rafael Staib)</Copyright>
+    <PackageLicenseUrl>https://github.com/ChilliCream/thor-generichost/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/ChilliCream/thor-generichost</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/ChilliCream/thor-generichost</RepositoryUrl>
+    <PackageTags>ETW, EventSource, Logging, Tracing, GenericHost</PackageTags>
+    <PackageReleaseNotes>Release notes: https://github.com/ChilliCream/thor-generichost/releases/$(PackageVersion)</PackageReleaseNotes>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageIconUrl>https://cdn.rawgit.com/ChilliCream/thor-logo/master/img/thor-signet-red.png</PackageIconUrl>
+    <RepositoryType>GitHub</RepositoryType>
+  </PropertyGroup>
+
+</Project>
