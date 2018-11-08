@@ -2,7 +2,6 @@ using System;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Thor.Core;
-using Thor.Core.Http;
 using Thor.Core.Session;
 using Thor.Core.Transmission.BlobStorage;
 using Thor.Core.Transmission.EventHub;
@@ -34,7 +33,6 @@ namespace Thor.GenericHost
             }
 
             return services
-                .AddTracingHttpMessageHandler(configuration)
                 .AddBlobStorageTelemetryAttachmentTransmission(configuration)
                 .AddEventHubTelemetryEventTransmission(configuration)
                 .AddInProcessTelemetrySession(configuration)

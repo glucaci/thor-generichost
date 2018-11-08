@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0</TargetFrameworks>
@@ -39,7 +39,6 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Options" Version="2.1.1" />
     <PackageReference Include="System.Diagnostics.DiagnosticSource" Version="4.5.0" />
-    <PackageReference Include="Thor.Core.Http" Version="1.0.0-preview-0006" />
     <PackageReference Include="Thor.Core.Session" Version="1.0.0-preview-0006" />
     <PackageReference Include="Thor.Core.Transmission.BlobStorage" Version="1.0.0-preview-0006" />
     <PackageReference Include="Thor.Core.Transmission.EventHub" Version="1.0.0-preview-0006" />
