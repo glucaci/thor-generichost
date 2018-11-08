@@ -3,8 +3,14 @@ using Microsoft.Extensions.Hosting;
 
 namespace Thor.GenericHost
 {
+    /// <summary>
+    /// Extension methods for Generic Host Builder
+    /// </summary>
     public static class HostBuilderExtensions
     {
+        /// <summary>
+        /// Configure tracing and build the host.
+        /// </summary>
         public static IHost BuildWithTracing(
             this IHostBuilder hostBuilder)
         {
