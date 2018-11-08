@@ -1,4 +1,13 @@
-﻿namespace Thor.GenericHost
+using System;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Thor.Core;
+using Thor.Core.Http;
+using Thor.Core.Session;
+using Thor.Core.Transmission.BlobStorage;
+using Thor.Core.Transmission.EventHub;
+
+namespace Thor.GenericHost
 {
     /// <summary>
     /// A bunch of convenient extensions methods for <see cref="IServiceCollection"/>.
@@ -48,10 +57,10 @@
             }
 
             return services
-                .AddTracingCore(configuration)
-                .AddSingleton<IDiagnosticsListener, HostingDiagnosticsListener>()
-                .AddSingleton<DiagnosticsListenerInitializer>()
-                .AddSingleton<IStartupFilter, TracingStartupFilter>();
+                .AddTracingCore(configuration);
+            //.AddSingleton<IDiagnosticsListener, HostingDiagnosticsListener>()
+            //.AddSingleton<DiagnosticsListenerInitializer>()
+            //.AddSingleton<IStartupFilter, TracingStartupFilter>();
         }
     }
 }
