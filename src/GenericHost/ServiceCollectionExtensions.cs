@@ -55,10 +55,8 @@ namespace Thor.GenericHost
             }
 
             return services
-                .AddTracingCore(configuration);
-            //.AddSingleton<IDiagnosticsListener, HostingDiagnosticsListener>()
-            //.AddSingleton<DiagnosticsListenerInitializer>()
-            //.AddSingleton<IStartupFilter, TracingStartupFilter>();
+                .AddTracingCore(configuration)
+                .AddSingleton<HostTelemetryInitializer>();
         }
     }
 }
