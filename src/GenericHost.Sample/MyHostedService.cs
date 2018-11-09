@@ -4,7 +4,7 @@ using Thor.GenericHost;
 
 namespace GenericHost.Sample
 {
-    internal class MyService : HostedServiceBase
+    internal class MyHostedService : HostedServiceBase
     {
         protected override Task OnStartAsync(CancellationToken cancellationToken)
         {

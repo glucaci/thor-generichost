@@ -21,9 +21,14 @@ namespace GenericHost.Sample
 
             IHost host = new HostBuilder()
                 .ConfigureHostConfiguration(builder =>
-                    builder.AddInMemoryCollection(configuration))
+                {
+                    builder.AddInMemoryCollection(configuration);
+                })
                 .ConfigureServices(services =>
-                    services.AddHostedService<MyService>())
+                {
+                    services.AddHostedService<MyHostedService>();
+                    services.AddHostedService<MyBackgroundService>();
+                })
                 .BuildWithTracing();
 
             host.Run();
