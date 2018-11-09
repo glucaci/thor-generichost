@@ -1,5 +1,8 @@
+using System;
+using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Thor.Core;
 
 namespace Thor.GenericHost
 {
@@ -11,20 +14,31 @@ namespace Thor.GenericHost
         /// <summary>
         /// Configure tracing and build the host.
         /// </summary>
-        public static IHost BuildWithTracing(
+        public static void RunWithTracing(
             this IHostBuilder hostBuilder)
         {
+            RegisterForUnhandledExceptions();
+
             IHost host = hostBuilder
                 .ConfigureServices((context, builder) =>
                     builder.AddTracing(context.Configuration))
-                .Build();
+                .Build();   
 
             host
                 .Services
                 .GetService<HostTelemetryInitializer>()
                 .Initialize();
 
-            return host;
+            host.RunSafe();
+        }
+
+        private static void RegisterForUnhandledExceptions()
+        {
+            AppDomain.CurrentDomain.UnhandledException += (sender, args) =>
+                Application.UnhandledException(args.ExceptionObject as Exception);
+
+            TaskScheduler.UnobservedTaskException += (sender, args) =>
+                Application.UnhandledException(args.Exception);
         }
     }
 }

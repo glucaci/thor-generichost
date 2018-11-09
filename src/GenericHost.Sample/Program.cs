@@ -19,19 +19,15 @@ namespace GenericHost.Sample
                 {"Tracing:EventHub:ConnectionString", "***"}
             };
 
-            IHost host = new HostBuilder()
+            new HostBuilder()
                 .ConfigureHostConfiguration(builder =>
-                {
-                    builder.AddInMemoryCollection(configuration);
-                })
+                    builder.AddInMemoryCollection(configuration))
                 .ConfigureServices(services =>
                 {
                     services.AddHostedService<MyHostedService>();
                     services.AddHostedService<MyBackgroundService>();
                 })
-                .BuildWithTracing();
-
-            host.Run();
+                .RunWithTracing();
         }
     }
 }
