@@ -24,7 +24,6 @@ namespace Thor.GenericHost
             catch (Exception ex)
             {
                 Application.UnhandledException(ex);
-                throw;
             }
         }
 
@@ -41,7 +40,6 @@ namespace Thor.GenericHost
             catch (Exception ex)
             {
                 Application.UnhandledException(ex);
-                throw;
             }
         }
     }
