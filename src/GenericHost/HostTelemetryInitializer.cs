@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using Thor.Core;
@@ -20,6 +21,12 @@ namespace Thor.GenericHost
             _applicationLifetime = applicationLifetime ?? throw new ArgumentNullException(nameof(applicationLifetime));
             _session = session ?? throw new ArgumentNullException(nameof(session));
             _configurationAccessor = configurationAccessor ?? throw new ArgumentNullException(nameof(configurationAccessor));
+
+            AppDomain.CurrentDomain.UnhandledException += (sender, args) =>
+                Application.UnhandledException(args.ExceptionObject as Exception);
+
+            TaskScheduler.UnobservedTaskException += (sender, args) =>
+                Application.UnhandledException(args.Exception);
         }
 
         public void Initialize()
