@@ -17,8 +17,6 @@ namespace Thor.GenericHost
         public static void RunWithTracing(
             this IHostBuilder hostBuilder)
         {
-            RegisterForUnhandledExceptions();
-
             IHost host = hostBuilder
                 .ConfigureServices((context, builder) =>
                     builder.AddTracing(context.Configuration))
@@ -30,15 +28,6 @@ namespace Thor.GenericHost
                 .Initialize();
 
             host.RunSafe();
-        }
-
-        private static void RegisterForUnhandledExceptions()
-        {
-            AppDomain.CurrentDomain.UnhandledException += (sender, args) =>
-                Application.UnhandledException(args.ExceptionObject as Exception);
-
-            TaskScheduler.UnobservedTaskException += (sender, args) =>
-                Application.UnhandledException(args.Exception);
         }
     }
 }
